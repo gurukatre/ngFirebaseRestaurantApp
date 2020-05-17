@@ -3,7 +3,41 @@
             <li (click)="openInfo(restaurant)" class="collection-item">
                 <img [src]="restaurant.logo" />
                 <h3>{{restaurant.name}}</h3>
-                <p>{{restaurant.description}}</p>
+                <p>{{truncateString(restaurant.description)}}</p>
+                <a href="#" class="secondary-content">
+                    <i (click)="editRestaurant($event, restaurant)" class="fa fa-pencil"> </i>
+                    <i *ngIf="editState && restaurantToEdit.id==restaurant.id" (click)="clearState()" class="fa fa-compress"> </i>
+                </a>
+
+                <div *ngIf="editState && restaurantToEdit.id==restaurant.id">
+                    <form (ngSubmit)="updateRestaurant(restaurant)">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input type="text" required [(ngModel)]="restaurant.name" name="name">
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="text" [(ngModel)]="restaurant.logo" name="logo">
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="text" [(ngModel)]="restaurant.description" name="description">
+                            </div>
+                            
+                                <div class="input-field col s3">
+                                    <input type="text" [(ngModel)]="restaurant.location.lat" name="lat">
+                                </div>
+                                <div class="input-field col s3">
+                                    <input type="text" [(ngModel)]="restaurant.location.long" name="long">
+                                </div>
+                            
+                            <div class="col s2">
+                                <input type="submit" value="Update" class="waves-effect waves-light btn-small orange">
+                            </div>
+                            <div class="secondary-content">
+                                <button (click)="deleteRestaurant($event, restaurant)" class="waves-effect waves-light btn-small red" >Delete</button>
+                            </div>
+                        </div>
+                    </form>
+                </div> 
             </li>
     </ul>
 </div>

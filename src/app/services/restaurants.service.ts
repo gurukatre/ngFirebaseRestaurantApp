@@ -28,4 +28,20 @@ export class RestaurantsService {
   getRestaurants() {
     return this.restaurants;
   }
+
+  addRestaurant(restaurant: Restaurant) {
+    this.restaurantCollection.add(restaurant);
+  }
+
+  deleteRestaurant(restaurant: Restaurant) {
+    this.restaurantDoc = this.afs.doc(`restoLocations/${restaurant.id}`);
+    this.restaurantDoc.delete();
+  }
+
+  updateRestaurant(restaurant: Restaurant) {
+    this.restaurantDoc = this.afs.doc(`restoLocations/${restaurant.id}`);
+    this.restaurantDoc.update(restaurant);
+  }
+
 }
+

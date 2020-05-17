@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +14,7 @@ import { RestaurantsComponent } from './components/restaurants/restaurants.compo
 
 import { RestaurantsService } from './services/restaurants.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { AddRestaurantComponent } from './components/add-restaurant/add-restaurant.component';
 
 
 @NgModule({
@@ -20,10 +22,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AppComponent,
     RestaurantsComponent,
     NavbarComponent,
+    AddRestaurantComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     GoogleMapsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,

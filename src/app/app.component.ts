@@ -48,8 +48,8 @@ export class AppComponent {
 
 	emitSingleDataToParentHandler(restaurant: Restaurant) {
 		this.center = {
-			lat: parseFloat(restaurant.location.lat),
-			lng: parseFloat(restaurant.location.long)
+			lat: parseFloat(String(restaurant.location.lat)),
+			lng: parseFloat(String(restaurant.location.long))
 		}
 	}
 
