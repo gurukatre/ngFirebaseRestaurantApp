@@ -1,0 +1,12 @@
+<div *ngIf="Restaurants?.length > 0; else noRestaurants">
+    <ul *ngFor="let restaurant of Restaurants" class="collection">
+            <li class="collection-item">
+                <strong>{{restaurant.name}}</strong>
+            </li>
+    </ul>
+</div>
+
+<ng-template #noRestaurants>
+    <hr />
+    <h5>There is no restaurants to list</h5>
+</ng-template>
