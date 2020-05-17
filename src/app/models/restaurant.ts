@@ -9,4 +9,7 @@ export interface Restaurant {
     };
 }
 
-// export interface locObj 
+export interface Center {
+    lat: number;
+    lng: number;
+}
